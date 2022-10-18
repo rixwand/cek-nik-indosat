@@ -1,0 +1,50 @@
+<div class="form md:w-3/4 w-11/12 px-1 pb-12 pt-6">
+  <div class="text-center font-inter flex justify-around text-gray-500">
+    <a href="" class="border-b-[1px] border-gray-500">Form</a>
+    <a href="/file">Excel</a>
+  </div>
+  <h3 class="block text-center text-gray-400 text-sm font-inter my-5">
+    Mohon masukkan data yang anda gunakan saat mendaftarkan nomor indosat
+  </h3>
+  <form action="/cek-nik" method="post" id="data">
+    <div class="flex my-1 input-form relative">
+      <input
+        type="text"
+        id="nik"
+        name="nik"
+        class="font-inter border-gray-300 px-3 py-2 md:px-4 md:py-2 border-2 border-opacity-50 w-1/2 rounded-full focus-within:outline-none mr-0.5 text-gray-400 text-xs md:text-sm"
+        placeholder="Masukkan NIK"
+        required
+      />
+      <input
+        type="text"
+        id="kk"
+        name="kk"
+        class="font-inter border-gray-300 px-3 py-2 md:px-4 md:py-2 border-2 border-opacity-50 w-1/2 rounded-full focus-within:outline-none ml-0.5 text-gray-400 text-xs md:text-sm"
+        placeholder="Masukkan No KK"
+        required
+      />
+      <button
+        class="delete absolute -right-[12px] bottom-3 bg-red-500 p-0 text-white font viga w-[14px] h-[14px] rounded-full"
+      ></button>
+    </div>
+    <button
+      id="add"
+      class="w-full mt-4 bg-blue-500 rounded-full p-2 text-white font-viga mb-3"
+    >
+      Tambah
+    </button>
+    <input type="hidden" name="nik" />
+    <input type="hidden" name="kk" />
+    <button
+      type="submit"
+      class="w-full periksa bg-green-500 rounded-full p-2 text-white mb-1 font-viga disabled:opacity-80"
+    >
+      Periksa
+    </button>
+    <p class="text-gray-300 text-xs font-inter text-center hidden notes">
+      *proses pengecekan membutuhkan waktu beberapa detik tergantung banyaknya
+      data
+    </p>
+  </form>
+</div>

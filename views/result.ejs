@@ -1,0 +1,37 @@
+<div class="lg:w-3/4 px-10 pb-12 pt-6">
+  <h3 class="text-center text-gray-400 text-sm font-inter mt-5">
+    Berikut hasil Pengecekan :
+  </h3>
+  <% if (Object.keys(data).length == 0) { %>
+  <h3 class="text-center text-gray-500 text-lg font-inter my-5">
+    Nik & Kk yang Anda Masukkan Tidak Valid
+  </h3>
+  <% } else { %>
+  <h3 class="text-center text-gray-400 text-sm font-inter mb-5 mt-1">
+    atau download file excel
+    <button id="unduh" class="text-blue-500 underline">disini</button>
+  </h3>
+  <table
+    id="result"
+    class="w-full lg:w-3/4 mx-auto table-auto text-start text-gray-500 border-collapse border border-gray-400"
+  >
+    <thead>
+      <tr>
+        <th class="border px-5 border-gray-400">NIK</th>
+        <th class="nokk border px-5 border-gray-400">KK</th>
+        <th class="border px-5 border-gray-400">ket</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(d => { %>
+      <tr>
+        <td class="border px-5 border-gray-400"><%- d.nik %></td>
+        <td class="nokk border px-5 border-gray-400"><%- d.kk %></td>
+        <td class="border px-5 border-gray-400"><%- d.ket %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <% } %>
+  <div id="raw" class="hidden"><%- JSON.stringify(data) %></div>
+</div>

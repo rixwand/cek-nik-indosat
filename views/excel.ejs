@@ -1,0 +1,56 @@
+<div class="flex flex-col form md:w-3/4 w-11/12 px-1 pb-12 pt-6">
+  <div class="text-center font-inter flex justify-around text-gray-500">
+    <a href="/">Form</a>
+    <a href="" class="border-b-[1px] border-gray-500">Excel</a>
+  </div>
+  <h3 class="block text-center text-gray-400 text-sm font-inter my-5">
+    Silahkan Upload File Excel Berisikan data yang digunakan saat registrasi
+  </h3>
+  <form action="/file" method="post" id="file" enctype="multipart/form-data">
+    <input
+      class="file-input"
+      type="file"
+      name="excel"
+      id="excel"
+      accept=".xlsx, .xls"
+      hidden
+      required
+    />
+    <div
+      class="file-prev font-inter relative w-3/4 md:w-[60%] h-12 mb-5 m-auto bg-gray-100 align-middle shadow-md rounded-md hidden"
+    >
+      <i class="icon ion-md-document text-gray-500 text-4xl px-3 mt-1"></i>
+      <section class="file-info text-gray-500 mt-1">
+        <p class="text-sm mt-[3px] title">nik im3.xlsx</p>
+        <p class="text-[9px] size">40KB</p>
+      </section>
+      <button
+        type="reset"
+        class="file-rmv rounded-full hover:before:bg-gray-500 hover:after:bg-gray-500 p-0 bg-none border-2 border-gray-400 hover:border-gray-500 absolute w-6 h-6 right-3 top-3"
+      ></button>
+    </div>
+    <div
+      class="flex mb-5 m-auto t file-input-area flex-col cursor-pointer text-center border-dashed h-40 md:h-52 w-3/4 md:w-[60%] justify-center align-middle rounded-xl border-gray-300 border-2"
+    >
+      <i class="icon ion-md-cloud-upload text-6xl text-gray-400"></i>
+      <p class="text-gray-500 text-sm font-inter">Browse File to Upload</p>
+    </div>
+    <button
+      type="submit"
+      class="w-3/4 periksa block mx-auto bg-green-500 rounded-full p-2 text-white font-viga mb-1 disabled:opacity-80"
+    >
+      Periksa
+    </button>
+    <p class="text-gray-300 text-xs font-inter text-center hidden notes">
+      *proses pengecekan membutuhkan waktu beberapa detik tergantung banyaknya
+      data
+    </p>
+
+    <h3 class="block text-center text-gray-300 text-sm font-inter mt-2">
+      atau download contoh format excel
+      <a href="/public/example.xlsx" download class="underline text-blue-300"
+        >disini</a
+      >
+    </h3>
+  </form>
+</div>

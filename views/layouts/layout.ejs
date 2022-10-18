@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Viga&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/xlsx/dist/shim.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" href="/public/style.css" />
+    <title><%- title %></title>
+  </head>
+  <body class="bg-gray-100">
+    <header>
+      <h1 class="md:text-3xl text-2xl text-center p-8 bg-primary font-viga">
+        Pengecekan MSISDN Berdasarkan NIK&KK
+      </h1>
+      <h2 class="text-4xl md:text-5xl pt-6 font-nordique text-center">
+        indosat
+      </h2>
+    </header>
+    <main class="container flex justify-center">
+      <div
+        class="login-form max-w-full my-10 md:w-3/4 lg:w-2/4 shadow rounded-lg bg-white flex justify-center"
+      >
+        <%- body %>
+      </div>
+    </main>
+
+    <script src="/public/script.js"></script>
+  </body>
+</html>
