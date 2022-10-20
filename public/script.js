@@ -56,7 +56,7 @@ if (fileInputArea) {
     const fileNameExt = fileNameParts.pop();
     const fileName = fileNameParts.join("");
     if (!supportExt.includes(fileNameExt)) {
-      document.querySelector("from#file").reset();
+      document.querySelector("form#file").reset();
       return alert("only supported " + supportExt.join(" ") + " files");
     }
     fileInputArea.style.display = "none";
