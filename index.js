@@ -3,8 +3,6 @@ import express from "express";
 import expressEjsLayouts from "express-ejs-layouts";
 import { JSDOM } from "jsdom";
 import fetch from "node-fetch";
-import path from "path";
-import { fileURLToPath } from "url";
 import fileUpload from "express-fileupload";
 import excelToJson from "convert-excel-to-json";
 
@@ -145,4 +143,4 @@ const check = async (data) => {
   return dump;
 };
 
-app.listen(9001);
+app.listen(9002);
