@@ -5,6 +5,11 @@ import { JSDOM } from "jsdom";
 import fetch from "node-fetch";
 import fileUpload from "express-fileupload";
 import excelToJson from "convert-excel-to-json";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 5000;
 const app = express();
