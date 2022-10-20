@@ -16,10 +16,6 @@ app.use("public", express.static("public"));
 
 axios.defaults.withCredentials = true;
 
-app.get("/", (req, res) => {
-  res.send("kjdsjk");
-});
-
 // const errorHandling = (err, req, res, next) => {
 //   res.render("error.ejs", {
 //     title: "Network Error",
@@ -28,12 +24,12 @@ app.get("/", (req, res) => {
 //   });
 // };
 
-// app.get("/", (req, res) => {
-//   res.render("index", {
-//     title: "cek nik",
-//     layout: "layouts/layout",
-//   });
-// });
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "cek nik",
+    layout: "layouts/layout",
+  });
+});
 // app.get("/file", (req, res) => {
 //   res.render("excel", {
 //     title: "cek file",
