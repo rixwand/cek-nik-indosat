@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileUpload());
 app.set("view engine", "ejs");
-app.use(expressEjsLayouts);
+// app.use(expressEjsLayouts);
 app.use("public", express.static("public"));
 
 axios.defaults.withCredentials = true;
@@ -25,11 +25,9 @@ axios.defaults.withCredentials = true;
 // };
 
 app.get("/", (req, res) => {
-  res.setHeader("Content-Type", "text/html");
-  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.render("index", {
     title: "cek nik",
-    layout: "layouts/layout",
+    // layout: "layouts/layout",
   });
 });
 // app.get("/file", (req, res) => {
