@@ -44,57 +44,59 @@ app.get("/file", (req, res) => {
 });
 
 app.post("/file", async (req, res, next) => {
-  const file = req.files.excel;
-  let dump;
-  const rawExcel = excelToJson({
-    source: file.data,
-    columnToKey: {
-      A: "nik",
-      B: "kk",
-    },
-  });
-  const excel = Object.values(rawExcel)[0];
-  const header = excel.shift();
-  if (
-    header.nik.toLowerCase() == "nik" &&
-    ["kk", "nokk"].includes(header.kk.toLowerCase())
-  ) {
-    const data = {
-      nik: [],
-      kk: [],
-    };
-    for (let i = 0; i < excel.length; i++) {
-      const nikVallid =
-        typeof parseInt(excel[i].nik) == "number" && excel[i].nik.length == 16;
-      const kkVallid =
-        typeof parseInt(excel[i].kk) == "number" && excel[i].kk.length == 16;
-      if (nikVallid && kkVallid) {
-        data.nik.push(excel[i].nik);
-        data.kk.push(excel[i].kk);
+  try {
+    const file = req.files.excel;
+    let dump;
+    const rawExcel = excelToJson({
+      source: file.data,
+      columnToKey: {
+        A: "nik",
+        B: "kk",
+      },
+    });
+    const excel = Object.values(rawExcel)[0];
+    const header = excel.shift();
+    if (
+      header.nik.toLowerCase() == "nik" &&
+      ["kk", "nokk"].includes(header.kk.toLowerCase())
+    ) {
+      const data = {
+        nik: [],
+        kk: [],
+      };
+      for (let i = 0; i < excel.length; i++) {
+        const nikVallid =
+          typeof parseInt(excel[i].nik) == "number" &&
+          excel[i].nik.length == 16;
+        const kkVallid =
+          typeof parseInt(excel[i].kk) == "number" && excel[i].kk.length == 16;
+        if (nikVallid && kkVallid) {
+          data.nik.push(excel[i].nik);
+          data.kk.push(excel[i].kk);
+        }
       }
-    }
-    try {
-      dump = await check(data);
-    } catch (err) {
-      return next(new Error("Network Error"));
-    }
-  } else {
-    dump = "";
-  }
 
-  res.render("result.ejs", {
-    title: "result",
-    data: dump,
-    layout: "layouts/layout",
-  });
+      dump = await check(data);
+    } else {
+      dump = "";
+    }
+
+    res.render("result.ejs", {
+      title: "result",
+      data: dump,
+      layout: "layouts/layout",
+    });
+  } catch (err) {
+    return next(new Error("Network Error"));
+  }
 });
 
 app.post("/cek-nik", async (req, res, next) => {
-  const data = req.body;
-  data.nik.pop();
-  data.kk.pop();
-
   try {
+    const data = req.body;
+    data.nik.pop();
+    data.kk.pop();
+
     const dump = await check(data);
 
     res.render("result.ejs", {
