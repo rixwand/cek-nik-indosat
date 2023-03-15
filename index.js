@@ -23,7 +23,7 @@ app.use("/public", express.static(__dirname + "/static"));
 axios.defaults.withCredentials = true;
 
 const errorHandling = (err, req, res, next) => {
-  res.render("error.ejs", {
+  res.render("error", {
     title: "Network Error",
     data: { statusCode: "504", errMsg: err.message },
     layout: "layouts/layout",
