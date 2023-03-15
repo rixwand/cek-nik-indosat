@@ -110,7 +110,7 @@ app.post("/cek-nik", async (req, res, next) => {
   }
 });
 
-// app.use(errorHandling);
+app.use(errorHandling);
 app.use((req, res, next) => {
   res.render("error.ejs", {
     title: "Page not Found",
