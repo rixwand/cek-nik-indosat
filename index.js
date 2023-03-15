@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(fileUpload());
 app.set("view engine", "ejs");
 app.use(expressEjsLayouts);
-app.use("/public", express.static("public"));
+app.use("/public", express.static(__dirname + "/public"));
 
 axios.defaults.withCredentials = true;
 
